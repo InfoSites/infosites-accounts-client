@@ -27,10 +27,11 @@ export default function( params ) {
 	exports.getToken = function () {
 	  return new Promise((resolve, reject) => {
 		let listener = function (event) {
+		  if (!event.data || typeof event.data !== 'string') return
 		  let chunk = event.data.split('--')
-		  if (chunk[0] === 'token') resolve(chunk[1])
-		  if (chunk[0] === 'redirect') reject(chunk[1])
-		  window.removeEventListener('message', listener)
+          if (chunk[0] === 'token') resolve(chunk[1])
+          if (chunk[0] === 'redirect') reject(chunk[1])
+          window.removeEventListener('message', listener)
 		}
 		window.addEventListener('message', listener)
 		iframe.contentWindow.postMessage('token', '*')

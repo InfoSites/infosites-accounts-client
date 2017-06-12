@@ -6,7 +6,7 @@ export default {
   entry: 'src/main.js',
   format: 'umd',
   external: [ 'jwt-decode' ],
-  dest: 'dist/infosites-acounts-client.js',
+  dest: 'dist/infosites-accounts-client.js',
   sourceMap: true,
   plugins: [
     babel({
