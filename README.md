@@ -1,1 +1,1 @@
-# infosites-accounts-client
+# infosites-accounts-client-js
